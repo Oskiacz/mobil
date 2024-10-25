@@ -10,4 +10,19 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_zadanie1">Zadanie 1</string>
+    <string name="menu_zadanie2">Zadanie 2</string>
+    <string name="menu_zadanie3">Zadanie 3</string>
+    <string name="menu_zadanie4">Zadanie 4</string>
+    <string name="menu_zadanie5">Zadanie 5</string>
+    <string name="menu_zadanie6">Zadanie 6</string>
+    <string name="menu_zadanie7">Zadanie 7</string>
+    <string name="menu_zadanie8">Zadanie 8</string>
+    <string name="menu_zadanie9">Zadanie 9</string>
+    <string name="menu_zadanie10">Zadanie 10</string>
+    <string name="menu_zadanie11">Zadanie 11</string>
+    <string name="menu_zadanie12">Zadanie 12</string>
+    <string name="menu_zadanie13">Zadanie 13</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
