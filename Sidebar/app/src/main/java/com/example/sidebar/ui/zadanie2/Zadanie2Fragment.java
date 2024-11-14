@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.sidebar.R;
 
@@ -25,6 +28,8 @@ public class Zadanie2Fragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    int currentIndex = 0;
 
     public Zadanie2Fragment() {
         // Required empty public constructor
@@ -61,6 +66,76 @@ public class Zadanie2Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_zadanie2, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_zadanie2, container, false);
+
+        Button buttonLeft = rootView.findViewById(R.id.buttonLeft);
+        Button buttonRight = rootView.findViewById(R.id.buttonRight);
+
+        TextView description = rootView.findViewById(R.id.textViewDescription);
+
+        ImageView oranges = rootView.findViewById(R.id.imageViewOranges);
+
+
+
+        int[] orangeTab = new int[] {
+                R.drawable.orang_1,
+                R.drawable.orang_2,
+                R.drawable.orang_3,
+                R.drawable.orang_4,
+                R.drawable.orang_5,
+                R.drawable.orang_6,
+                R.drawable.orang_7
+        };
+
+        String[] descriptions = new String[] {
+                "this is orange 1 i think this is orange 1 i think this is orange 1 i think this is orange 1 i think this is orange 1 i think this is orange 1 i think this is orange 1 i think this is orange 1 i think this is orange 1 i think this is orange 1 i think this is orange 1 i think this is orange 1 i think this is orange 1 i think this is orange 1 i think this is orange 1 i think ",
+                "orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife orange 2 killed my wife ",
+                "orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool orange 3 is pretty cool ",
+                "i forgot which one this was i forgot which one this was i forgot which one this was i forgot which one this was i forgot which one this was i forgot which one this was i forgot which one this was i forgot which one this was i forgot which one this was i forgot which one this was i forgot which one this was i forgot which one this was i forgot which one this was i forgot which one this was i forgot which one this was i forgot which one this was i forgot which one this was i forgot which one this was i forgot which one this was ",
+                "Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. Welcome to my orange society. ",
+                "oooooooorrrrrrrrrrrraaaaaaaaaaaaaaaaagnge oooooooorrrrrrrrrrrraaaaaaaaaaaaaaaaagnge oooooooorrrrrrrrrrrraaaaaaaaaaaaaaaaagnge oooooooorrrrrrrrrrrraaaaaaaaaaaaaaaaagnge oooooooorrrrrrrrrrrraaaaaaaaaaaaaaaaagnge oooooooorrrrrrrrrrrraaaaaaaaaaaaaaaaagnge oooooooorrrrrrrrrrrraaaaaaaaaaaaaaaaagnge oooooooorrrrrrrrrrrraaaaaaaaaaaaaaaaagnge oooooooorrrrrrrrrrrraaaaaaaaaaaaaaaaagnge oooooooorrrrrrrrrrrraaaaaaaaaaaaaaaaagnge oooooooorrrrrrrrrrrraaaaaaaaaaaaaaaaagnge oooooooorrrrrrrrrrrraaaaaaaaaaaaaaaaagnge oooooooorrrrrrrrrrrraaaaaaaaaaaaaaaaagnge oooooooorrrrrrrrrrrraaaaaaaaaaaaaaaaagnge oooooooorrrrrrrrrrrraaaaaaaaaaaaaaaaagnge ",
+                "were oranges named after the color orange or was the color orange named after oranges were oranges named after the color orange or was the color orange named after oranges were oranges named after the color orange or was the color orange named after oranges were oranges named after the color orange or was the color orange named after oranges were oranges named after the color orange or was the color orange named after oranges were oranges named after the color orange or was the color orange named after oranges were oranges named after the color orange or was the color orange named after oranges were oranges named after the color orange or was the color orange named after oranges were oranges named after the color orange or was the color orange named after oranges were oranges named after the color orange or was the color orange named after oranges were oranges named after the color orange or was the color orange named after oranges were oranges named after the color orange or was the color orange named after oranges were oranges named after the color orange or was the color orange named after oranges "
+        };
+
+        buttonLeft.setEnabled(false);
+        buttonLeft.setAlpha(0.5F);
+
+        description.setText(descriptions[currentIndex]);
+
+        buttonLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(currentIndex == 6) {
+                    buttonRight.setEnabled(true);
+                    buttonRight.setAlpha(1F);
+                }
+                currentIndex-= 1;
+                oranges.setImageResource(orangeTab[currentIndex]);
+                description.setText(descriptions[currentIndex]);
+                if(currentIndex == 0) {
+                    buttonLeft.setEnabled(false);
+                    buttonLeft.setAlpha(0.5F);
+                }
+            }
+        });
+
+        buttonRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(currentIndex == 0) {
+                    buttonLeft.setEnabled(true);
+                    buttonLeft.setAlpha(1F);
+                }
+                currentIndex+= 1;
+                oranges.setImageResource(orangeTab[currentIndex]);
+                description.setText(descriptions[currentIndex]);
+                if(currentIndex == 6) {
+                    buttonRight.setEnabled(false);
+                    buttonRight.setAlpha(0.5F);
+                }
+            }
+        });
+
+        return rootView;
     }
 }
