@@ -7,8 +7,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 import com.example.sidebar.R;
+import com.example.sidebar.ui.zadanie3.classes.TodoListSQLHelper;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +19,10 @@ import com.example.sidebar.R;
  * create an instance of this fragment.
  */
 public class Zadanie3Fragment extends Fragment {
+
+    private ListView myList;
+    private ListAdapter todoListAdapter;
+    private TodoListSQLHelper todoListSQLHelper;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
